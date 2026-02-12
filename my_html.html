@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MEDIA GALLERY · arrow with loading feedback</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <i class="fas fa-images"></i>
+        MEDIA GALLERY
+      </div>
+      <h1>Kareri 2026</h1>
+      <p class="subtitle">Snow, rivers, roads and everything in between <br> where mountains met memories and every step became a story.</p>
+      <div class="stats">
+        <div class="stat-box">
+          <div class="stat-number" id="totalCount">0</div>
+          <div class="stat-label">Total Media</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number" id="imageCount">0</div>
+          <div class="stat-label">Images</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number" id="videoCount">0</div>
+          <div class="stat-label">Videos</div>
+        </div>
+      </div>
+    </header>
+
+    <div class="controls">
+      <button class="filter-btn active" data-filter="all">All Media</button>
+      <button class="filter-btn" data-filter="image">Images</button>
+      <button class="filter-btn" data-filter="video">Videos</button>
+    </div>
+
+    <div class="masonry-grid" id="grid"></div>
+<footer>
+  <p class="footer-links">
+    <a href="/kareri4/public">Kareri 2026</a>
+    <span>•</span>
+    <a href="/about-us">About Us</a>
+    <span>•</span>
+    <a href="/map">Route</a>
+    <span>•</span>
+    <a href="/dev">About Trip</a>
+  </p>
+</footer>
+
+
+  </div>
+
+  <!-- MODAL – with arrow buttons that show loading spinner on click -->
+  <div class="modal" id="modal">
+    <div class="modal-wrapper">
+      <div class="modal-media-container" style="position: relative;">
+        <img id="mImg" class="modal-media" style="display: none;">
+        <video id="mVid" class="modal-media" controls style="display: none;"></video>
+
+        <!-- ARROW NAVIGATION – loading state added via JS -->
+        <div class="nav-arrow-left" id="navPrev" title="Previous (←)">
+          <i class="fas fa-chevron-left"></i>
+        </div>
+        <div class="nav-arrow-right" id="navNext" title="Next (→)">
+          <i class="fas fa-chevron-right"></i>
+        </div>
+      </div>
+
+      <div class="modal-toolbar">
+        <button id="modalShareBtn"><i class="fas fa-link"></i> Share</button>
+        <button id="modalDownloadBtn"><i class="fas fa-download"></i> Download</button>
+        <button id="modalDeleteBtn"><i class="fas fa-trash-alt"></i> Delete</button>
+      </div>
+      <button class="close-btn" id="closeModal"><i class="fas fa-times"></i></button>
+    </div>
+  </div>
+
+  <!-- PASSWORD MODAL -->
+  <div class="password-modal" id="passwordModal">
+    <div class="password-box">
+      <h3><i class="fas fa-lock"></i> Delete Confirmation</h3>
+      <p>Enter the admin password to delete this media item.</p>
+      <input type="password" class="password-input" id="adminPassword" placeholder="Enter admin password">
+      <p id="passwordError"><i class="fas fa-exclamation-circle"></i> Incorrect password</p>
+      <div class="password-buttons">
+        <button class="btn btn-cancel" id="cancelDelete">Cancel</button>
+        <button class="btn btn-delete" id="confirmDelete"><i class="fas fa-trash"></i> Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
